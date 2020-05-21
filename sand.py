@@ -22,3 +22,4 @@ print(dict2)
 
 del(dict2['лучочек'])
 print(dict2)
+print(dict2)
