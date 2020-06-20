@@ -19,9 +19,21 @@ def test():
             return True
         day, month, year = map(int, d.split('.'))
         day_c, month_c, year_c = map(int, d_current.split('.'))
-        days = year * 365 + month * 30 + day
-        days_c = year_c * 365 + month_c * 30 + day_c
-        return day_c - days >= 30
+        if year == year_c:
+            if month == month_c:
+                return False
+            if month_c - month > 1:
+                return True
+            if month_c - month == 1:
+                return day_c > day
+        if year > year_c:
+            return False
+        if year_c - year > 1:
+            return True
+        if month != 12 or month_c != 1:
+            return True
+        if month != 12 or month_c != 1:
+            return day_c > day
 
     def take_book(s):
         s = s.replace('Взять "', '').replace(')', '').replace('(', '')
